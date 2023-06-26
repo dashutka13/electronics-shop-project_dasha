@@ -23,8 +23,14 @@ def test_apply_discount():
     item1 = Item("Смартфон", 10000, 20)
     item2 = Item("Ноутбук", 20000, 5)
 
-    assert item1.apply_discount() == 8500
+    item2.pay_rate = 0.75
 
-    assert item2.apply_discount() == 17000
+    item1.apply_discount()
+    item2.apply_discount()
+
+    assert item1.price == 8500
+
+    assert item2.price == 15000
+
 
 
