@@ -1,4 +1,3 @@
-import pytest
 from src.item import Item
 
 
@@ -33,4 +32,38 @@ def test_apply_discount():
     assert item2.price == 15000
 
 
+def test_name_setter():
+    """
+    Запускает тестирование
+    сеттера метода name
+    """
+    item = Item('Телефон', 10000, 5)
+    item.name = 'Смартфон'
 
+    assert item.name == 'Смартфон'
+
+    item.name = 'СуперСмартфон'
+
+    assert item.name == 'СуперСмарт'
+
+
+def test_instantiate_from_csv():
+    """
+    Запускает тестирование
+    класс-метода instantiate_from_csv
+    """
+    Item.instantiate_from_csv()  # создание объектов из данных файла
+    assert len(Item.all) == 5  # в файле 5 записей с данными по товарам
+
+    item1 = Item.all[0]
+    assert item1.name == 'Смартфон'
+
+
+def test_string_to_number():
+    """
+    Запускает тестирование
+    статического метода string_to_number
+    """
+    assert Item.string_to_number('5') == 5
+    assert Item.string_to_number('5.0') == 5
+    assert Item.string_to_number('5.5') == 5
