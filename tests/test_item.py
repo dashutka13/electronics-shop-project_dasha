@@ -67,3 +67,21 @@ def test_string_to_number():
     assert Item.string_to_number('5') == 5
     assert Item.string_to_number('5.0') == 5
     assert Item.string_to_number('5.5') == 5
+
+
+def test_repr():
+    """
+    Запускает тестирование
+    магического метода __repr__
+    """
+    item1 = Item("Телевизор", 110000, 5)
+    assert repr(item1) == "Item('Телевизор', 110000, 5)"
+
+
+def test_str():
+    """
+        Запускает тестирование
+        магического метода __str__
+        """
+    item1 = Item("Кондиционер", 160000, 15)
+    assert str(item1) == 'Кондиционер'
