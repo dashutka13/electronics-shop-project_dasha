@@ -1,12 +1,15 @@
 class Mixinlang:
     def __init__(self, language="EN"):
-        self.language = language
+        self.__language = language
 
     def change_lang(self):
-        if self.language == "EN":
-            self.language = "RU"
+        if self.__language == "EN":
+            self.__language = "RU"
         else:
-            self.language = "EN"
+            self.__language = "EN"
         return self
 
+    @property
+    def language(self):
+        return self.__language
 
